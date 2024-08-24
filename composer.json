@@ -13,5 +13,13 @@
             "email": "flawlesslol123@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.4",
+        "symfony/framework-bundle": ">=6.4"
+    },
+    "keywords": [
+        "symfony",
+        "facade",
+        "bundle"
+    ]
 }

@@ -1,6 +1,7 @@
 {
     "name": "flawlol/facade",
     "description": "Facade logic for Symfony",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Flawlol\\Facade\\": "src/"

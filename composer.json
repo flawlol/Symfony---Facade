@@ -1,0 +1,16 @@
+{
+    "name": "flawlol/facade",
+    "description": "Facade logic for Symfony",
+    "autoload": {
+        "psr-4": {
+            "Flawlol\\Facade\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Norbert Kecső",
+            "email": "flawlesslol123@gmail.com"
+        }
+    ],
+    "require": {}
+}

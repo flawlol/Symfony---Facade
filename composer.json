@@ -15,7 +15,8 @@
     ],
     "require": {
         "php": ">=7.4",
-        "symfony/framework-bundle": ">=6.4"
+        "symfony/framework-bundle": ">=6.4",
+        "flawlol/facade-ide-helper": ">=1.0"
     },
     "keywords": [
         "symfony",

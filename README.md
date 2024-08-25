@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/flawlol/facade/v)](https://packagist.org/packages/flawlol/facade)
+[![Total Downloads](https://poser.pugx.org/flawlol/facade/downloads)](https://packagist.org/packages/flawlol/facade)
+[![Latest Unstable Version](https://poser.pugx.org/flawlol/facade/v/unstable)](https://packagist.org/packages/flawlol/facade)
+[![License](https://poser.pugx.org/flawlol/facade/license)](https://packagist.org/packages/flawlol/facade)
+[![PHP Version Require](https://poser.pugx.org/flawlol/facade/require/php)](https://packagist.org/packages/flawlol/facade)
 # Symfony - Facade
 
 ## Author

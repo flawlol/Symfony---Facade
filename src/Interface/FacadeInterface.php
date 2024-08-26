@@ -2,7 +2,7 @@
 
 namespace Flawlol\Facade\Interface;
 
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Interface FacadeInterface.
@@ -21,11 +21,11 @@ interface FacadeInterface
     /**
      * Set the container instance.
      *
-     * @param ContainerInterface $container The container instance to set.
+     * @param ?ContainerInterface $container The container instance to set.
      *
      * @return void
      */
-    public static function setContainer(ContainerInterface $container): void;
+    public static function setContainer(?ContainerInterface $container): void;
 
     /**
      * Handle dynamic, static calls to the object.

@@ -5,7 +5,7 @@ namespace Flawlol\Facade\Abstract;
 use Flawlol\Facade\Exception\ContainerIsAlreadySetException;
 use Flawlol\Facade\Exception\ContainerIsNotSetException;
 use Flawlol\Facade\Interface\FacadeInterface;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Abstract class Facade.
@@ -32,14 +32,18 @@ abstract class Facade implements FacadeInterface
     /**
      * Set the container instance.
      *
-     * @param ContainerInterface $container The container instance to set.
+     * @param ?ContainerInterface $container The container instance to set.
      *
      * @throws ContainerIsAlreadySetException If the container is already set.
      *
      * @return void
      */
-    public static function setContainer(ContainerInterface $container): void
+    public static function setContainer(?ContainerInterface $container): void
     {
+        if (null === $container) {
+            throw new \InvalidArgumentException('Container cannot be null');
+        }
+
         if (null !== self::$container) {
             throw new ContainerIsAlreadySetException('Container is already set');
         }

@@ -5,7 +5,7 @@ namespace Flawlol\Facade\Interface;
 use Psr\Container\ContainerInterface;
 
 /**
- * Interface FacadeInterface
+ * Interface FacadeInterface.
  *
  * This interface defines the contract for a facade that interacts with a container.
  */
@@ -22,6 +22,7 @@ interface FacadeInterface
      * Set the container instance.
      *
      * @param ContainerInterface $container The container instance to set.
+     *
      * @return void
      */
     public static function setContainer(ContainerInterface $container): void;
@@ -30,7 +31,8 @@ interface FacadeInterface
      * Handle dynamic, static calls to the object.
      *
      * @param string $method The method name being called.
-     * @param array $args The arguments passed to the method.
+     * @param array  $args   The arguments passed to the method.
+     *
      * @return string The result of the method call.
      */
     public static function __callStatic(string $method, array $args): string;

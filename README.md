@@ -82,10 +82,23 @@ The package defines the following exceptions:
 - `ContainerIsNotSetException`: Thrown when attempting to use the facade without setting the container.
 
 ## IDE Helper
-The `_idehelper.php` file provides helper classes to improve IDE autocompletion and static analysis. These helpers act as proxies to the actual service methods, making it easier to work with facades in your IDE.
+The `flawlol/facade-ide-helper` package provides a command to generate IDE helper files for facades in Symfony.
+Its recommended to use this package to improve IDE autocompletion and static analysis.
+
+Its also recommended to use the `flawlol/facade-ide-helper` package as a dev dependency.
+
+```bash
+composer require --dev flawlol/facade-ide-helper
+```
+
+The `_ide-helper.php` file provides helper classes to improve IDE autocompletion and static analysis. These helpers act as proxies to the actual service methods, 
+making it easier to work with facades in your IDE.
+
+To generate the facade helpers, run the following command:
+```php bin/console app:generate-facade-helpers```
 
 ### Example
-The following example demonstrates how to use the `Arr` facade to access array elements using a key path.
+The following example demonstrates the helper class generated for a facade named `Arr`:
 
 ```php
 <?php
@@ -94,14 +107,12 @@ namespace App\Facade {
     class Arr
     {
         /**
-         * Get a value from an array using a key path.
-         *
-         * @param array $array The array to search.
-         * @param string $keyPath The key path to search for.
-         * @param mixed $defaultValue The default value to return if the key path is not found.
-         * @return mixed The value found at the key path or the default value.
+         * @param array $array
+         * @param string $keyPath
+         * @param mixed $defaultValue
+         * @return mixed
          */
-        public static function get(array $array, string $keyPath, mixed $defaultValue = null)
+        public static function get(array $array, string $keyPath, mixed $defaultValue = NULL): mixed
         {
             /** @var \App\Service\Common\Array\ArrayHelper $instance */
             return $instance->get($array, $keyPath, $defaultValue);
@@ -115,6 +126,49 @@ namespace App\Facade {
 
 The `Arr` class provides a static method `get` to retrieve values from an array using a key path. 
 This method acts as a proxy to the `get` method of the `ArrayHelper` service, allowing you to use the facade for cleaner and more readable code.
+
+## Real World Example
+If you you have a service like this:
+
+```php
+<?php
+
+namespace App\Service\Common\Array;
+
+class ArrayHelper
+{
+    public function get(array $array, string $keyPath, mixed $defaultValue = null): mixed
+    {
+        // implementation
+    }
+}
+```
+
+You can use the facade like this, and the IDE will provide autocompletion and type hints:
+```php
+use App\Facade\Arr;
+
+$result = Arr::get($array, 'key.path', 'default');
+```
+
+### Inside the Facade Class
+Make sure the Service is register in `getFacadeAccessor` method in the Facade class.
+
+```php
+<?php
+
+namespace App\Facade;
+
+use Flawlol\Facade\Abstract\Facade;
+
+class Arr extends
+{
+    protected static function getFacadeAccessor(): string
+    {
+        return ArrayHelper::class;
+    }
+}
+```
 
 
 ## License

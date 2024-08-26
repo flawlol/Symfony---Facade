@@ -8,7 +8,7 @@ use Flawlol\Facade\Interface\FacadeInterface;
 use Psr\Container\ContainerInterface;
 
 /**
- * Abstract class Facade
+ * Abstract class Facade.
  *
  * This abstract class provides a base implementation for a facade that interacts with a container.
  */
@@ -33,8 +33,10 @@ abstract class Facade implements FacadeInterface
      * Set the container instance.
      *
      * @param ContainerInterface $container The container instance to set.
-     * @return void
+     *
      * @throws ContainerIsAlreadySetException If the container is already set.
+     *
+     * @return void
      */
     public static function setContainer(ContainerInterface $container): void
     {
@@ -49,10 +51,12 @@ abstract class Facade implements FacadeInterface
      * Handle dynamic, static calls to the object.
      *
      * @param string $method The method name being called.
-     * @param array $args The arguments passed to the method.
-     * @return string The result of the method call.
+     * @param array  $args   The arguments passed to the method.
+     *
      * @throws ContainerIsNotSetException If the container is not set.
-     * @throws \BadMethodCallException If the method does not exist on the service.
+     * @throws \BadMethodCallException    If the method does not exist on the service.
+     *
+     * @return string The result of the method call.
      */
     public static function __callStatic(string $method, array $args): string
     {
@@ -80,5 +84,5 @@ abstract class Facade implements FacadeInterface
      *
      * @return string The facade accessor key.
      */
-    abstract static protected function getFacadeAccessor(): string;
+    abstract protected static function getFacadeAccessor(): string;
 }

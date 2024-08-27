@@ -33,7 +33,7 @@ interface FacadeInterface
      * @param string $method The method name being called.
      * @param array  $args   The arguments passed to the method.
      *
-     * @return string The result of the method call.
+     * @return mixed The result of the method call.
      */
-    public static function __callStatic(string $method, array $args): string;
+    public static function __callStatic(string $method, array $args): mixed;
 }

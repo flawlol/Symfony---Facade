@@ -60,9 +60,9 @@ abstract class Facade implements FacadeInterface
      * @throws ContainerIsNotSetException If the container is not set.
      * @throws \BadMethodCallException    If the method does not exist on the service.
      *
-     * @return string The result of the method call.
+     * @return mixed The result of the method call.
      */
-    public static function __callStatic(string $method, array $args): string
+    public static function __callStatic(string $method, array $args): mixed
     {
         if (null === self::$container) {
             throw new ContainerIsNotSetException('Container is not set');
